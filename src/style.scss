@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
 
+@mixin desktop {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +25,6 @@
 
 body {
   height: 100vh;
-  background-color: var(--pale-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,11 +32,26 @@ body {
   font-family: var(--font-family);
   font-weight: 500;
   line-height: 1.5;
+  background-color: var(--pale-blue);
+
+  &::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+    z-index: -1;
+    background-image: url("/img/pattern-background-mobile.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    @include desktop {
+      background-image: url("/img/pattern-background-desktop.svg");
+    }
+  }
 }
 
 .card {
   box-shadow: 0 20px 15px 10px hsla(223, 47%, 23%, 0.1);
-  max-width: 450px;
+  max-width: 400px;
   width: 85%;
   border-radius: 24px;
   background-color: white;
@@ -45,9 +65,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5em 1em;
+    padding: 1.5em 1.25em;
     text-align: center;
     gap: 1.25em;
+
+    @include desktop {
+      padding: 2em 1.75em;
+    }
   }
 
   &__title {
@@ -58,6 +82,7 @@ body {
   &__description {
     color: var(--desaturated-blue);
     padding: 0 0.5em;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -69,6 +94,7 @@ body {
   border-radius: 8px;
   gap: 1.25em;
   align-items: center;
+  width: 100%;
 
   &__description {
     flex: 1;
@@ -78,6 +104,7 @@ body {
     strong {
       font-weight: 900;
       color: var(--dark-blue);
+      display: block;
     }
   }
 
@@ -85,29 +112,59 @@ body {
     color: var(--bright-blue);
     font-weight: 700;
     font-size: 0.9em;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      text-decoration: none;
+      filter: brightness(200%);
+    }
   }
 }
 
 .button {
   color: var(--text-color);
-  background-color: var(--background-color);
-
+  position: relative;
   font-size: 0.9em;
   text-decoration: none;
   font-weight: 900;
   border-radius: 8px;
   width: var(--width, 100%);
   padding: 0.825em;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::before {
+    position: absolute;
+    background-color: var(--background-color);
+    inset: 0;
+    content: "";
+    z-index: -1;
+  }
 
   &--pay {
     --text-color: white;
     --background-color: var(--bright-blue);
     box-shadow: 0 7px 10px 6px hsla(245, 75%, 52%, 0.2);
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      &.button::before {
+        filter: brightness(200%);
+      }
+    }
   }
 
   &--cancel {
     --text-color: var(--desaturated-blue);
     --background-color: white;
     --width: auto;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      --text-color: var(--dark-blue);
+    }
   }
 }
