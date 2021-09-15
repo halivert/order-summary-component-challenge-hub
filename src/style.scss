@@ -30,6 +30,7 @@ body {
 }
 
 .card {
+  box-shadow: 0 20px 15px 10px hsla(223, 47%, 23%, 0.1);
   max-width: 450px;
   width: 85%;
   border-radius: 24px;
@@ -87,13 +88,6 @@ body {
   }
 }
 
-.buttons {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  gap: 0.25em;
-}
-
 .button {
   color: var(--text-color);
   background-color: var(--background-color);
@@ -102,16 +96,18 @@ body {
   text-decoration: none;
   font-weight: 900;
   border-radius: 8px;
-  width: 100%;
-  padding: 0.75em;
+  width: var(--width, 100%);
+  padding: 0.825em;
 
   &--pay {
     --text-color: white;
     --background-color: var(--bright-blue);
+    box-shadow: 0 7px 10px 6px hsla(245, 75%, 52%, 0.2);
   }
 
   &--cancel {
     --text-color: var(--desaturated-blue);
     --background-color: white;
+    --width: auto;
   }
 }
