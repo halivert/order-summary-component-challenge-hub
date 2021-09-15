@@ -23,7 +23,7 @@
   --font-family: "Red Hat Display";
 }
 
-body {
+main {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -33,6 +33,7 @@ body {
   font-weight: 500;
   line-height: 1.5;
   background-color: var(--pale-blue);
+  isolation: isolate;
 
   &::before {
     position: absolute;
