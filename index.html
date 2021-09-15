@@ -2,12 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Order summary component challenge hub</title>
   </head>
+
   <body>
-    <div id="app"></div>
+    <article class="card">
+      <img
+        class="card__image"
+        alt="Dancing girl"
+        src="img/illustration-hero.svg"
+      />
+
+      <h1 class="card__title">Order Summary</h1>
+
+      <p class="card__description">
+        You can now listen to millions of songs, audiobooks, and podcasts on any
+        device anywhere you like!
+      </p>
+
+      <div class="actual_plan">
+        <img alt="Notes icon" src="img/icon-music.svg" />
+
+        <p>
+          <strong class="actual_plan__name">Annual Plan</strong>
+          $59.99/year
+        </p>
+
+        <a class="actual_plan__change" href="#change">Change</a>
+      </div>
+
+      <a class="button button--pay" href="#pay">Proceed to Payment</a>
+
+      <a class="button button--cancel" href="#cancel">Cancel Order</a>
+    </article>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
