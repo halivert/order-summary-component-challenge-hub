@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: inherit;
+}
+
+:root {
+  --pale-blue: hsl(225, 100%, 94%);
+  --bright-blue: hsl(245, 75%, 52%);
+  --very-pale-blue: hsl(225, 100%, 98%);
+  --desaturated-blue: hsl(224, 23%, 55%);
+  --dark-blue: hsl(223, 47%, 23%);
+  --font-size: 16px;
+  --font-family: "Red Hat Display";
+}
+
+body {
+  height: 100vh;
+  background-color: var(--pale-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.card {
+  max-width: 450px;
+  width: 85%;
+  border-radius: 24px;
+  background-color: white;
+  overflow: hidden;
+
+  &__image {
+    width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5em 1em;
+    text-align: center;
+    gap: 1.25em;
+  }
+
+  &__title {
+    color: var(--dark-blue);
+    font-weight: 900;
+  }
+
+  &__description {
+    color: var(--desaturated-blue);
+    padding: 0 0.5em;
+  }
+}
+
+.actual_plan {
+  display: flex;
+  font-size: 0.9em;
+  background-color: var(--very-pale-blue);
+  padding: 1em 1.25em;
+  border-radius: 8px;
+  gap: 1.25em;
+  align-items: center;
+
+  &__description {
+    flex: 1;
+    text-align: left;
+    color: var(--desaturated-blue);
+
+    strong {
+      font-weight: 900;
+      color: var(--dark-blue);
+    }
+  }
+
+  &__change {
+    color: var(--bright-blue);
+    font-weight: 700;
+    font-size: 0.9em;
+  }
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.button {
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  font-size: 0.9em;
+  text-decoration: none;
+  font-weight: 900;
+  border-radius: 8px;
+  width: 100%;
+  padding: 0.75em;
+
+  &--pay {
+    --text-color: white;
+    --background-color: var(--bright-blue);
+  }
+
+  &--cancel {
+    --text-color: var(--desaturated-blue);
+    --background-color: white;
+  }
+}
