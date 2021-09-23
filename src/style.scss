@@ -23,6 +23,10 @@
   --font-family: "Red Hat Display";
 }
 
+body {
+  position: relative;
+}
+
 main {
   height: 100vh;
   display: flex;
@@ -171,5 +175,17 @@ main {
     &:focus-visible {
       --text-color: var(--dark-blue);
     }
+  }
+}
+
+footer {
+  position: absolute;
+  inset: auto auto 1em 1em;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+
+  a {
+    color: var(--bright-blue);
+    text-decoration: none;
   }
 }
